@@ -1,0 +1,13 @@
+<img src={{name}}><br>
+<button {{action 'rotateClockwise'}}>Rotate Clockwise</button><br>
+<button {{action 'rotateAntiClockwise'}}>Rotate Anti-Clockwise</button>
+<br>
+{{input type="text" value=password}}
+{{!-- Change the type of the input to password for the circles --}}
+<br>
+<button {{action 'selectInner'}}>Inner Circle</button>
+<button {{action 'selectOuter'}}>Outer Circle</button>
+{{outlet}}
+
+
+ 
