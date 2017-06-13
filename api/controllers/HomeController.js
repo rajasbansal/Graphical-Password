@@ -7,9 +7,7 @@
 
 module.exports = {
 	index:function(req,res,next){
-		console.log('hi');
 		res.view('index.hbs');
-
 	}
 };
 

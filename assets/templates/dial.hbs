@@ -1,4 +1,4 @@
-<img src={{name}}><br>
+<img src={{this.name}}><br>
 <button {{action 'rotateClockwise'}}>Rotate Clockwise</button><br>
 <button {{action 'rotateAntiClockwise'}}>Rotate Anti-Clockwise</button>
 <br>
@@ -7,7 +7,7 @@
 <br>
 <button {{action 'selectInner'}}>Inner Circle</button>
 <button {{action 'selectOuter'}}>Outer Circle</button>
+ID {{this.id}}
 {{outlet}}
 
 
- 
