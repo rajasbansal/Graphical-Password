@@ -3,6 +3,7 @@
 <head>
 	<title>Ember Js APP</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/custom.css">
 	<script src="libs/jquery.js"></script>
 	<script src="libs/ember.min.js"></script>
 	<script src="libs/ember-handlebars-loader-0.0.2.js"></script>
@@ -12,10 +13,12 @@
 	<script src="libs/bootstrap.js"></script>
 	<script src="app.js"></script>
 	<script src="router.js"></script>
-	<script src="routes/dial.js"></script>
 	<script src="controllers/dial.js"></script>
+	<script src="controllers/login.js"></script>
+	<script src="libs/jquery.validate.min.js"></script>
+	<script src="js/customValidate.js"></script>
 	<script>
-	EmberHandlebarsLoader.loadTemplates(['application', 'dial']);
+	EmberHandlebarsLoader.loadTemplates(['application', 'dial','login']);
 	</script>
 </head>
 <body>

@@ -1,13 +1,16 @@
-<img src={{this.name}}><br>
+
+Username: {{input type="text" value=username}}  <button {{action 'verify'}}>Verify</button><br/>
+{{#if foundColour}}
+<img src={{name}}><br>
 <button {{action 'rotateClockwise'}}>Rotate Clockwise</button><br>
 <button {{action 'rotateAntiClockwise'}}>Rotate Anti-Clockwise</button>
 <br>
-{{input type="text" value=password}}
+Password: {{input type="text" value=password}}
 {{!-- Change the type of the input to password for the circles --}}
 <br>
 <button {{action 'selectInner'}}>Inner Circle</button>
-<button {{action 'selectOuter'}}>Outer Circle</button>
-ID {{this.id}}
+<button {{action 'selectOuter'}}>Outer Circle</button><br>
+{{/if}}
 {{outlet}}
 
 

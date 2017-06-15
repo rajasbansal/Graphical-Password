@@ -1,0 +1,31 @@
+<form id="sign-up-form" {{action 'createUser' on="submit"}} class="form-signin">
+	<h2 class="form-signin-heading">Create an account</h2>
+	
+	<div class="control-group">
+	{{input type="text" class="form-control" placeholder="your name" name="name" value=name}}
+	</div>
+
+	<div class="control-group">
+	{{input type="text" class="form-control" placeholder="colour" name="colour" value=colour}}
+	</div>
+	
+	<div class="control-group">
+	{{input type="text" class="form-control" placeholder="email address" name="email" value=email}}
+	</div>
+
+	<div class="control-group">
+	{{input type="text" class="form-control" placeholder="username" name="username" value=username}}
+	</div>
+
+	<div class="control-group">
+	{{input type="password" class="form-control" placeholder="password" name="password" id="password" value=password}}
+	</div>
+
+	<div class="control-group">
+	{{input type="password" class="form-control" placeholder="password confirmation" name="confirmation"}}
+	<br />
+	</div>
+
+	<input type="submit" class="btn btn-lg btn-primary btn-block" value="Create Account" />
+	<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+</form>
