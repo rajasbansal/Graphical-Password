@@ -18,7 +18,8 @@ $(document).ready(function(){
 	        email: true
 	      },
 	      username: {
-	      	required: true
+	      	required: true,
+	      	unique: true
 	      },
 	      password: {
 	      	minlength: 6,

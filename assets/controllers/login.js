@@ -13,8 +13,13 @@ App.LoginController = Ember.Controller.extend({
 			console.log('Creating User');
 			var self = this;
 			Ember.$.post('/api/user/create',{name: this.get('name'), password: this.get('password'), colour: this.get('colour'), email: this.get('email'), username: this.get('username')}).then(function (response) {
-				alert('Created user\n'+response.name+'\n'+ response.colour);
-				self.transitionToRoute('dial');
+				if (response.created == true){	
+					alert('Created user\n'+response.name+'\n'+ response.colour);
+					self.transitionToRoute('dial');
+				}
+				else {
+					alert('Username or E-mail already exists');
+				}
 			});
 		}
 	}

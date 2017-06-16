@@ -12,8 +12,15 @@ module.exports = {
 	      if (err) return next(err);
 	      req.body.encryptedPassword = encrypted;
 	      User.create({name:req.body.name, colour: req.body.colour, email: req.body.email, username: req.body.username, encryptedPassword: req.body.encryptedPassword}, function(err, user){
-			if (err) return next(err);    //will return errors if true TO BE ADDED
-			res.ok({name:user.name, colour: user.colour, id: user.id},"");
+			if (err){
+				res.ok({created: false});
+				return next(err);
+			}    //will return errors if true TO BE ADDED
+			// if (!user){
+			// 	console.log('error');
+			// 	return next(err);
+			// }
+			res.ok({created: true, name:user.name, colour: user.colour, id: user.id},"");
 		});
 	    });
 		
