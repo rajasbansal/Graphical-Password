@@ -15,7 +15,7 @@ module.exports = {
   	},
   	encryptedPassword: {
   		type: 'string'
-      //required: true Later
+      //required: true 
   	},
     colour: {
       type: 'string', //has to be from one of the options. Will add,
