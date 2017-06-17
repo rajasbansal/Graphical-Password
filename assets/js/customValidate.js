@@ -18,8 +18,7 @@ $(document).ready(function(){
 	        email: true
 	      },
 	      username: {
-	      	required: true,
-	      	unique: true
+	      	required: true
 	      },
 	      password: {
 	      	minlength: 6,
@@ -32,7 +31,7 @@ $(document).ready(function(){
 	    },
 			success: function(element) {
 				element
-				.text('OK!').addClass('valid')
+				.text('That is correct').addClass('valid')
 			}
 	  });
 
