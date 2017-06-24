@@ -14,8 +14,8 @@ module.exports = {
   		required: true
   	},
   	encryptedPassword: {
-  		type: 'string'
-      //required: true 
+  		type: 'string',
+      required: true 
   	},
     colour: {
       type: 'string', //has to be from one of the options. Will add,
@@ -31,6 +31,11 @@ module.exports = {
       type: 'string',
       required: true,
       unique: true
+    },
+    toJSON: function() {
+      var obj = this.toObject();
+      delete obj.encryptedPassword;
+      return obj;
     }
   }
 

@@ -21,6 +21,11 @@ App.LoginController = Ember.Controller.extend({
 					alert('Username or E-mail already exists');
 				}
 			});
+		},
+		isAuthenticated: function(){
+			Ember.$.post('/api/user/isAuthenticated',{}).then(function(response){
+				alert(response.authenticated);
+			});
 		}
 	}
 });

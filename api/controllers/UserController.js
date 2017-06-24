@@ -14,7 +14,7 @@ module.exports = {
 	      User.create({name:req.body.name, colour: req.body.colour, email: req.body.email, username: req.body.username, encryptedPassword: req.body.encryptedPassword}, function(err, user){
 			if (err){
 				res.ok({created: false});
-				return next(err);
+				return next();
 			}    //will return errors if true TO BE ADDED
 			// if (!user){
 			// 	console.log('error');
@@ -37,6 +37,49 @@ module.exports = {
 			}
 			
 		});
+	},
+	authenticate: function( req, res, next){
+		var oldDateObj = new Date();
+		var newDateObj = new Date(oldDateObj.getTime() + 60000);
+		req.session.cookie.expires = newDateObj; 
+		console.log(req.session);
+
+		User.findOne({username: req.body.username}).exec(function(err, user){
+			if (err) return next(err);
+			var data ={};
+			if (!user){
+				data.found = false;
+				res.ok(data,"");
+				return;
+			}
+			else{
+				data.found = true;
+				require('bcrypt').compare(req.body.password, user.encryptedPassword, function(err, valid) {
+					if (err) return next(err);
+
+					// If the password from the form doesn't match the password from the database
+					if (!valid) {
+						data.passwordMatch = false;
+						res.ok(data, "");
+						return;
+					}
+					data.passwordMatch = true;
+					// Log user in
+					req.session.authenticated = true;
+					req.session.User = user.toJSON();
+
+					//send checked data
+					data.authenticated = true;
+					data.User = user.toJSON();
+					console.log(req.session);
+					console.log(data);
+					res.ok(data, "");
+				});
+			}
+		});
+	},
+	isAuthenticated: function(req, res, next){
+		res.ok({authenticated: req.session.authenticated},"");
 	}
 };
 

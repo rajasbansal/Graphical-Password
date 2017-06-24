@@ -70,11 +70,30 @@ App.DialController = Ember.Controller.extend({
 			var outer = this.get('outer').toArray();
 			pass += outer.objectAt((this.get('id') + this.get('color'))%8);
 			this.set('password', pass);
-		}//,
-		// createUser: function(){
-		// 	Ember.$.post('/api/user/create',{username: this.get('username'), password: this.get('password')}).then(function (response) {
-		// 		alert(response.id);
-		// 	});
-		// }
+		},
+		check: function(){
+			var self = this;
+			if (this.get('foundColour') == false){
+				alert('Username has not been entered');
+			}
+			else {
+				Ember.$.post('/api/user/authenticate', {username: this.get('username'), password: this.get('password')}).then(function(response){
+					if (!response.found){
+						alert('Username not found');
+						return;
+					}
+					if (!response.passwordMatch){
+						alert('Password for ' + self.get('username') + ' is not correct');
+						return;
+					}
+					alert('User authenticated');
+				});
+			}
+		},
+		isAuthenticated: function(){
+			Ember.$.post('/api/user/isAuthenticated',{}).then(function(response){
+				alert(response.authenticated);
+			});
+		}
 	}
 });
