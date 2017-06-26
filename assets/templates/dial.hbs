@@ -8,13 +8,15 @@ Username: {{username}}<br>
 <button {{action 'rotateAntiClockwise'}}>Rotate Anti-Clockwise</button>
 <br>
 <br>
-Password: {{input type="text" value=password}}
+Password: {{input type="password" value=password}}
 {{!-- Change the type of the input to password for the circles --}}
 <br>
 <button {{action 'selectInner'}}>Inner Circle</button>
 <button {{action 'selectOuter'}}>Outer Circle</button><br>
 <button {{action 'check'}}>Submit</button><br>
 {{/if}}
+<br><br>
+{{canvas-thing}}
 {{outlet}}
 
 
