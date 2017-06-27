@@ -8,25 +8,19 @@ App.DialController = Ember.Controller.extend({
 	color: 0,			//user can choose color value
 	foundColour: false,
 	colour: 'yellow',
+	num1:0,
+	num2:0,
+	inner: true,
+	outer: true,
 	actions: {
 		rotateClockwise: function() {
-			var new_id = this.get('id');
-			new_id = (new_id - 1)%8;
-			if (new_id < 0) new_id += 8;
-			this.set('id', new_id);
-			this.set('name',"images/photo"+new_id +'.jpg');
+			this.set('num1', this.get('num1') + 1);
 		},
 		rotateAntiClockwise: function() {
-			var new_id = this.get('id');
-			new_id = (new_id + 1)%8;
-			this.set('id', new_id);
-			this.set('name',"images/photo"+new_id +'.jpg');
+			this.set('num2', this.get('num2') + 1);
 		},
 		selectInner: function(){
-			var pass = this.get('password');
-			var inner = this.get('inner').toArray();
-			pass += inner.objectAt((this.get('id') + this.get('color'))%8);
-			this.set('password', pass);
+			this.toggleProperty('inner');
 		},
 		verify: function(){
 			var self = this;
@@ -35,41 +29,37 @@ App.DialController = Ember.Controller.extend({
 					self.set('colour', response.colour);
 					self.set('foundColour', true);
 					if (self.get('colour') == 'yellow'){
-						self.set('color', 0);
+						self.set('color', 11);
 					}
 					else if (self.get('colour') == 'blue'){
-						self.set('color', 1);
-					}
-					else if (self.get('colour') == 'green'){
-						self.set('color', 2);
-					}
-					else if (self.get('colour') == 'purple'){
 						self.set('color', 3);
 					}
-					else if (self.get('colour') == 'pink'){
-						self.set('color', 4);
+					else if (self.get('colour') == 'green'){
+						self.set('color', 0);
 					}
-					else if (self.get('colour') == 'red'){
+					else if (self.get('colour') == 'purple'){
 						self.set('color', 5);
 					}
-					else if (self.get('colour') == 'black'){
+					else if (self.get('colour') == 'pink'){
 						self.set('color', 6);
 					}
-					else if (self.get('colour') == 'orange'){
+					else if (self.get('colour') == 'red'){
 						self.set('color', 7);
+					}
+					else if (self.get('colour') == 'black'){
+						self.set('color', 3);
+					}
+					else if (self.get('colour') == 'orange'){
+						self.set('color', 8);
 					}
 				}
 				else{
 					alert('Not found');
 				}
 			});
-			
 		},
 		selectOuter: function(){
-			var pass = this.get('password');
-			var outer = this.get('outer').toArray();
-			pass += outer.objectAt((this.get('id') + this.get('color'))%8);
-			this.set('password', pass);
+			this.toggleProperty('outer');
 		},
 		check: function(){
 			var self = this;

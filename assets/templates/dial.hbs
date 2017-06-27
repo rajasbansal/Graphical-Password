@@ -1,22 +1,23 @@
 {{#unless foundColour}}
-Username: {{input type="text" value=username}}  <button {{action 'verify'}}>Verify</button><br/>
+<div class = 'jumbotron'>
+<h3>Username: {{input type="text" value=username}}</h3>  <button {{action 'verify'}} class ='btn btn-success'>Verify</button><br/>
+</div>
 {{/unless}}
 {{#if foundColour}}
-Username: {{username}}<br>
-<img src={{name}}><br>
-<button {{action 'rotateClockwise'}}>Rotate Clockwise</button><br>
-<button {{action 'rotateAntiClockwise'}}>Rotate Anti-Clockwise</button>
-<br>
-<br>
-Password: {{input type="password" value=password}}
+<div style="text-align: center;">
+	<h1>Username: {{username}}</h1> <a href="/dial">Change</a>
+	<hr>
+</div>
+<button style="position:absolute ; top:650px; left:400px" {{action 'rotateClockwise'}} class='btn btn-primary'>Rotate Clockwise</button><br>
+<button style="position:absolute ; top:650px; left:750px" {{action 'rotateAntiClockwise'}} class='btn btn-primary'>Rotate Anti-Clockwise</button>
+<div style="position:absolute ; top:750px; left:500px" class='form-group' id=pass>
+<label for='pass'>Password: </label>{{input type="password" value=password}}
+</div>
 {{!-- Change the type of the input to password for the circles --}}
-<br>
-<button {{action 'selectInner'}}>Inner Circle</button>
-<button {{action 'selectOuter'}}>Outer Circle</button><br>
-<button {{action 'check'}}>Submit</button><br>
+<button style="position:absolute ; top:700px; left:400px" {{action 'selectInner'}} class='btn btn-info'>Inner Circle</button>
+<button style="position:absolute ; top:700px; left:800px" {{action 'selectOuter'}} class='btn btn-info'>Outer Circle</button><br>
+<button style="position:absolute ; top:800px; left:600px" {{action 'check'}} class='btn btn-success'>Submit</button><br>
+{{canvas-thing clockwise=num1 anticlockwise=num2 inner=inner outer=outer selectedColorIndex=color}}
 {{/if}}
-<br><br>
-{{canvas-thing}}
 {{outlet}}
-
 
