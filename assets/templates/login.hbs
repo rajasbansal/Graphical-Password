@@ -8,7 +8,7 @@
 	<div class="control-group">
 	{{!-- {{input type="text" class="form-control" placeholder="colour" name="colour" value=colour}} --}}
 		<div class="dropdown">
-	    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="background-color: black;">{{#unless boolC}}Colour{{/unless}} {{#if boolC}}{{colour}}{{/if}}
+	    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="background-color: {{colour_to_show}}; color: {{text_colour}}">{{#unless boolC}}Colour{{/unless}} {{#if boolC}}{{colour}}{{/if}}
 	    <span class="caret"></span></button>
 	    <ul class="dropdown-menu">
 	      <li style="background-color: #B8D430"><button class='btn btn-link t' {{action 'set' 'Light Green'}}>Light Green</button></li>
