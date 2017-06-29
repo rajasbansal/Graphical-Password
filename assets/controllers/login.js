@@ -4,6 +4,7 @@ App.LoginController = Ember.Controller.extend({
 	email: '',
 	password: '',
 	username: '',
+	boolC: false,
 	actions:{
 		// chooseColour: function(selection){
 		// 	this.set('colour', selection);
@@ -26,6 +27,11 @@ App.LoginController = Ember.Controller.extend({
 			Ember.$.post('/api/user/isAuthenticated',{}).then(function(response){
 				alert(response.authenticated);
 			});
+		},
+		set: function (col){
+			this.set('colour', col);
+			this.set('boolC', true);
+			console.log(this.get('colour'));
 		}
 	}
 });

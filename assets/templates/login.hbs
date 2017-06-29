@@ -6,7 +6,17 @@
 	</div>
 
 	<div class="control-group">
-	{{input type="text" class="form-control" placeholder="colour" name="colour" value=colour}}
+	{{!-- {{input type="text" class="form-control" placeholder="colour" name="colour" value=colour}} --}}
+		<div class="dropdown">
+	    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="background-color: black;">{{#unless boolC}}Colour{{/unless}} {{#if boolC}}{{colour}}{{/if}}
+	    <span class="caret"></span></button>
+	    <ul class="dropdown-menu">
+	      <li><button class='btn btn-link' {{action 'set' 'red'}}>Red</button></li>
+	      <li><button class='btn btn-link' {{action 'set' 'yellow'}}>Yellow</button></li>
+	      <li><button class='btn btn-link' {{action 'set' 'green'}}>Green</button></li>
+	    </ul>
+	  	</div>
+	  	<br/>
 	</div>
 	
 	<div class="control-group">
@@ -26,5 +36,16 @@
 	<br />
 	</div>
 
+	{{!-- <div class="control-group">
+		<div class="dropdown">
+	    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Colour
+	    <span class="caret"></span></button>
+	    <ul class="dropdown-menu">
+	      <li><button class='btn btn-link' {{action 'set' 'red'}}>Red</button></li>
+	      <li><button class='btn btn-link' {{action 'set' 'yellow'}}>Yellow</button></li>
+	      <li><button class='btn btn-link' {{action 'set' 'green'}}>Green</button></li>
+	    </ul>
+	  	</div>
+	</div> --}}
 	<input type="submit" class="btn btn-lg btn-primary btn-block" value="Create Account" />
 </form>
