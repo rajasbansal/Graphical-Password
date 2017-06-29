@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Ember Js APP</title>
+	<title>Graphic</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/custom.css">
 	<script src="libs/jquery.js"></script>
@@ -13,15 +13,17 @@
 	<script src="libs/bootstrap.js"></script>
 	<script src="app.js"></script>
 	<script src="router.js"></script>
+	<script src='controllers/application.js'></script>
 	<script src="controllers/dial.js"></script>
 	<script src="controllers/login.js"></script>
+	<script src='controllers/profile.js'></script>
 	<script src="libs/jquery.validate.min.js"></script>
 	<script src="js/customValidate.js"></script>
-	<script type="text/x-handlebars" id="components/canvas-thing">
+	{{!-- <script type="text/x-handlebars" id="components/canvas-thing">
   		{{canvas-thing}}
-	</script>
+	</script> --}}
 	<script>
-	EmberHandlebarsLoader.loadTemplates(['application', 'dial','login']);
+	EmberHandlebarsLoader.loadTemplates(['application', 'dial','login', 'profile']);
 	</script>
 </head>
 <body>

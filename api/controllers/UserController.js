@@ -79,7 +79,10 @@ module.exports = {
 		});
 	},
 	isAuthenticated: function(req, res, next){
-		res.ok({authenticated: req.session.authenticated},"");
+		res.ok({authenticated: req.session.authenticated, User: req.session.User},"");
+	},
+	logout: function(req, res, next){
+		req.session.destroy();
 	}
 };
 

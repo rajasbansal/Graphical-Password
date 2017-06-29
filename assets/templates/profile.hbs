@@ -1,0 +1,24 @@
+{{#if isAuthenticated}}
+	<div class = 'jumbotron'>
+		<h3> {{name}}</h3>
+		<p>
+			Username: {{username}}<br/>
+			Email: {{email}}
+		</p>
+	</div>
+{{/if}}
+{{#unless isAuthenticated}}
+	<div class = 'container'>
+		<div class = 'row'>
+			<div class='col-md-4'>
+			</div>
+			<div class='col-md-4'>
+				<div class="alert alert-danger" role="alert">
+			  		<strong>Please log in!</strong> {{#link-to 'dial'}} Click here to log-in again{{/link-to}}
+				</div>
+			</div>
+			<div class='col-md-4'>
+			</div>
+		</div>
+	</div>
+{{/unless}}

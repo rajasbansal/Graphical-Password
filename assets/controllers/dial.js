@@ -77,6 +77,7 @@ App.DialController = Ember.Controller.extend({
 						return;
 					}
 					alert('User authenticated');
+					window.location.href = '/profile';
 				});
 			}
 		},
