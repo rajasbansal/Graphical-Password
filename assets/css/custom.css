@@ -74,3 +74,9 @@ padding: 7px 9px;
   margin-bottom: 15px;
   padding: 7px 9px;
 }
+.t {
+  color: white;
+}
+.t:hover {
+  color: black;
+}

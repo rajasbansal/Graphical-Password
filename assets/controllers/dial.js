@@ -28,29 +28,41 @@ App.DialController = Ember.Controller.extend({
 				if (response.found == true){
 					self.set('colour', response.colour);
 					self.set('foundColour', true);
-					if (self.get('colour') == 'yellow'){
-						self.set('color', 11);
-					}
-					else if (self.get('colour') == 'blue'){
-						self.set('color', 3);
-					}
-					else if (self.get('colour') == 'green'){
+					if (self.get('colour') == 'Light Green'){
 						self.set('color', 0);
 					}
-					else if (self.get('colour') == 'purple'){
-						self.set('color', 5);
+					else if (self.get('colour') == 'Dark Green'){
+						self.set('color', 1);
 					}
-					else if (self.get('colour') == 'pink'){
-						self.set('color', 6);
+					else if (self.get('colour') == 'Teal'){
+						self.set('color', 2);
 					}
-					else if (self.get('colour') == 'red'){
-						self.set('color', 7);
-					}
-					else if (self.get('colour') == 'black'){
+					else if (self.get('colour') == 'Blue'){
 						self.set('color', 3);
 					}
-					else if (self.get('colour') == 'orange'){
+					else if (self.get('colour') == 'Dark Blue'){
+						self.set('color', 4);
+					}
+					else if (self.get('colour') == 'Purple'){
+						self.set('color', 5);
+					}
+					else if (self.get('colour') == 'Magenta'){
+						self.set('color', 6);
+					}
+					else if (self.get('colour') == 'Red'){
+						self.set('color', 7);
+					}
+					else if (self.get('colour') == 'Orange'){
 						self.set('color', 8);
+					}
+					else if (self.get('colour') == 'Light Orange'){
+						self.set('color', 9);
+					}
+					else if (self.get('colour') == 'Mango Yellow'){
+						self.set('color', 10);
+					}
+					else if (self.get('colour') == 'Yellow'){
+						self.set('color', 11);
 					}
 				}
 				else{

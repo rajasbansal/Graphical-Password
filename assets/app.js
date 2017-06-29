@@ -13,7 +13,7 @@ App.CanvasThingComponent = Ember.Component.extend({
   startAngle : 0,
   arc : Math.PI / 6,
   data: 'hi',
-  characters : '0123456789ABCDEFGHIJKLIMN'.split(''),
+  characters : '0123456789abcdefghijklmnopqrstuvwxyz'.split(''),
   clockwise: 0,
   anticlockwise: 0,
   dial: Ember.inject.controller(),
