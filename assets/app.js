@@ -19,6 +19,7 @@ App.CanvasThingComponent = Ember.Component.extend({
   dial: Ember.inject.controller(),
   inner: true,
   outer: true,
+  capson: false,
   onClockwise: function() {
     this.rotateClockwise();
   }.observes('clockwise'),
@@ -36,6 +37,16 @@ App.CanvasThingComponent = Ember.Component.extend({
     this.selectOuterWheel();
     this.randomiseIndexArray();
   }.observes('outer'),
+
+  onCapson: function(){
+    if (this.get('capson') == true){
+      this.set('characters','0123456789ABCDEFGHIJKLMN'.split(''));
+    }
+    else{
+      this.set('characters','0123456789abcdefghijklmnopqrstuvwxyz'.split(''));
+    }
+    this.draw();
+  }.observes('capson'),
 
   didInsertElement: function() {
     // gotta set ctxf here instead of in init because

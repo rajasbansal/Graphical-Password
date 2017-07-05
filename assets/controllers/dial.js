@@ -12,6 +12,7 @@ App.DialController = Ember.Controller.extend({
 	num2:0,
 	inner: true,
 	outer: true,
+	capson: false,
 	actions: {
 		rotateClockwise: function() {
 			this.set('num1', this.get('num1') + 1);
@@ -68,6 +69,11 @@ App.DialController = Ember.Controller.extend({
 				else{
 					alert('Not found');
 				}
+			});
+			Ember.$(document).keypress(function(e) {
+    			if (e.which == 13){
+    				self.toggleProperty('capson');
+    			}      
 			});
 		},
 		selectOuter: function(){
