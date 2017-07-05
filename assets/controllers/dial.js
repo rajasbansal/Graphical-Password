@@ -70,9 +70,13 @@ App.DialController = Ember.Controller.extend({
 					alert('Not found');
 				}
 			});
-			Ember.$(document).keypress(function(e) {
-    			if (e.which == 13){
+			Ember.$(document).keydown(function(e) {
+    			if (e.which == 16){
     				self.toggleProperty('capson');
+    			}
+    			if (e.which == 13){
+    				$('#sub').click();
+    				console.log('hi');
     			}      
 			});
 		},
