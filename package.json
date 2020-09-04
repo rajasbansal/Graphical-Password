@@ -22,7 +22,7 @@
     "handlebars": "^4.0.10",
     "include-all": "^1.0.0",
     "mongo": "^0.1.0",
-    "mongodb": "^2.2.28",
+    "mongodb": "^3.1.13",
     "rc": "1.0.1",
     "sails": "~0.12.13",
     "sails-disk": "~0.10.9",
